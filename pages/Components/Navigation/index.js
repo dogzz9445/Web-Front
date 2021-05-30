@@ -41,7 +41,7 @@ const Navigation = () => {
             <NavContainer>
                 <MenuLogo>logo</MenuLogo>
                 <MenuItem>
-                    <Link href="http://naver.com">
+                    <Link href="/chartindex">
                         <a>Item1</a>
                     </Link>
                     <Link href="http://google.com">

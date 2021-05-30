@@ -1,13 +1,15 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import PropTypes from "prop-types";
 
 import styled from "@emotion/styled";
 
 const ChartContainer = styled.div`
     height: 500px;
+    margin: 100px;
 `;
 
-const Chart = () => {
+const Chart = ({ chart }) => {
     const chartData = [15, 12, 14, 16];
     const oneDay = [17, 13, 20, 33];
     const data = {
@@ -54,9 +56,14 @@ const Chart = () => {
         <>
             <ChartContainer>
                 <Line data={data} legend={legend} options={options} />
+                <div>{chart}asdasd</div>
             </ChartContainer>
         </>
     );
+};
+
+Chart.propTypes = {
+    chart: PropTypes.arrayOf().isRequired,
 };
 
 export default Chart;
