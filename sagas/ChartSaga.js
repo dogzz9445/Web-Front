@@ -7,7 +7,7 @@ import {
 } from "../reducers/Chart";
 
 function loadChartDataAPI() {
-    return axios.get(`/api/analyzed/recent`);
+    return axios.get(`/api/analyzed/recent/`);
 }
 
 function* loadChartData(action) {

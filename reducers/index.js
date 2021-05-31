@@ -7,11 +7,12 @@ const rootReducer = (state, action) => {
     switch (action.type) {
         case HYDRATE:
             return action.payload;
-        default:
+        default: {
             const combineReducer = combineReducers({
                 Chart,
             });
             return combineReducer(state, action);
+        }
     }
 };
 

@@ -1,6 +1,6 @@
 import Produce from "../util/produce";
 
-const initialState = {
+export const initialState = {
     chartData: [],
     chartDataLoading: false,
     chartDataDone: false,
@@ -11,7 +11,7 @@ export const LOAD_CHARTDATA_REQUEST = "LOAD_CHARTDATA_REQUEST";
 export const LOAD_CHARTDATA_SCCUESS = "LOAD_CHARTDATA_SCCUESS";
 export const LOAD_CHARTDATA_FAILURE = "LOAD_CHARTDATA_FAILURE";
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) =>
     Produce(state, (draft) => {
         switch (action.type) {
             case LOAD_CHARTDATA_REQUEST:
@@ -35,6 +35,5 @@ const reducer = (state = initialState, action) => {
                 break;
         }
     });
-};
 
 export default reducer;

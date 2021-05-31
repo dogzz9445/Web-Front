@@ -1,23 +1,26 @@
-import React, { uesEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { LOAD_CHARTDATA_REQUEST } from "../reducers/Chart";
-import Chart from "./Components/Chart/Chart";
+
+import AppLayout from "./Components/AppLayout";
+import Chart from "./Components/Chart/ChartForm";
 
 const ChartIndex = () => {
-    const { chartData } = useSelector((state) => state.Chart);
     const dispatch = useDispatch();
+    const { chartData, chartDataLoading } = useSelector((state) => state.Chart);
 
-    uesEffect(() => {
+    useEffect(() => {
+        console.log("Hi");
         dispatch({
             type: LOAD_CHARTDATA_REQUEST,
         });
-    });
+    }, [chartDataLoading, chartData]);
 
     return (
         <>
             <AppLayout>
-                {chartData.map((chart) => (
-                    <Chart key={chart.id} chart={chart} />
+                {chartData.map((chartItem) => (
+                    <Chart key={chartItem.id} chartItem={chartItem} />
                 ))}
             </AppLayout>
         </>

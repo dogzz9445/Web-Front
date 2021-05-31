@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import CardItem from "./CardItem";
-import Chart from "../Chart/Chart";
+import ChartForm from "../Chart/ChartForm";
 
 const BodyContainer = styled.div`
     border: 1px solid black;
@@ -16,7 +16,7 @@ const SectionTextDiv = styled.div`
         font-size: 15pt;
     }
 `;
-const ChartForm = styled.div`
+const ChartBox = styled.div`
     border: 1px solid blue;
 `;
 const Section2 = styled.div`
@@ -31,9 +31,9 @@ const BodySection = () => {
                     <SectionTextDiv>
                         <span>실시간</span>
                     </SectionTextDiv>
-                    <ChartForm>
-                        <Chart />
-                    </ChartForm>
+                    <ChartBox>
+                        <ChartForm />
+                    </ChartBox>
                 </Section1>
                 <Section2>
                     카드목록
