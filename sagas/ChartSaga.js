@@ -1,9 +1,9 @@
 import axios from "axios";
-import { all, call, fork, put, takeLatest, thottle } from "redux-saga/effects";
+import { all, call, fork, put, takeLatest, throttle } from "redux-saga/effects";
 import {
     LOAD_CHARTDATA_FAILURE,
     LOAD_CHARTDATA_REQUEST,
-    LOAD_CHARTDATA_SCCUESS,
+    LOAD_CHARTDATA_SUCCESS,
 } from "../reducers/Chart";
 
 function loadChartDataAPI() {
@@ -15,7 +15,7 @@ function* loadChartData(action) {
         const result = yield call(loadChartDataAPI, action.data);
 
         yield put({
-            type: LOAD_CHARTDATA_SCCUESS,
+            type: LOAD_CHARTDATA_SUCCESS,
             data: result.data,
         });
     } catch (err) {
@@ -27,7 +27,8 @@ function* loadChartData(action) {
 }
 
 function* watchLoadChart() {
-    yield takeLatest(LOAD_CHARTDATA_REQUEST, loadChartData);
+    /* request time setting */
+    yield throttle(60000, LOAD_CHARTDATA_REQUEST, loadChartData);
 }
 
 export default function* chartSaga() {

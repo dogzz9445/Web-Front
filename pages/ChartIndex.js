@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { LOAD_CHARTDATA_REQUEST } from "../reducers/Chart";
 
 import AppLayout from "./Components/AppLayout";
-import Chart from "./Components/Chart/ChartForm";
+import ChartForm from "./Components/Chart/ChartForm";
 
 const ChartIndex = () => {
     const dispatch = useDispatch();
@@ -19,8 +19,8 @@ const ChartIndex = () => {
     return (
         <>
             <AppLayout>
-                {chartData.map((chartItem) => (
-                    <Chart key={chartItem.id} chartItem={chartItem} />
+                {chartData.map((chartItem, index) => (
+                    <ChartForm key={index} chartItem={chartItem} />
                 ))}
             </AppLayout>
         </>

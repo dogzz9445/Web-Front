@@ -9,7 +9,7 @@ const ChartContainer = styled.div`
     margin: 100px;
 `;
 
-const Chart = ({ chartItem }) => {
+const Chart = ({ chart }) => {
     const chartData = [15, 12, 14, 16];
     const oneDay = [17, 13, 20, 33];
     const data = {
@@ -56,14 +56,10 @@ const Chart = ({ chartItem }) => {
         <>
             <ChartContainer>
                 <Line data={data} legend={legend} options={options} />
-                <div>{chartItem}asdasd</div>
+                <div>{chart}asdasd</div>
             </ChartContainer>
         </>
     );
-};
-
-Chart.propTypes = {
-    chartItem: PropTypes.array.isRequired,
 };
 
 export default Chart;
