@@ -73,7 +73,7 @@ const Navigation = () => {
                             )}
                         </ToggleSection>
                         <ToggleSection>
-                            <Link href="http://google.com">
+                            <Link href="/Contact">
                                 <a>Item2</a>
                             </Link>
                         </ToggleSection>
