@@ -5,6 +5,7 @@ import ChartForm from "../Chart/ChartForm";
 
 const BodyContainer = styled.div`
     border: 1px solid black;
+    margin-top: 150px;
 `;
 
 const Section1 = styled.div`

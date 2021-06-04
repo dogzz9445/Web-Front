@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
+import SubNav from "./SubNav";
+
+const NavSection = styled.div`
+    position: relative;
+    width: 100%;
+`;
 const NavContainer = styled.div`
-    border: 1px solid red;
-    widht: 100%;
     display: flex;
-    height: 50px;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
     align-items: center;
 `;
 const MenuLogo = styled.div`
@@ -20,8 +27,9 @@ const MenuLogo = styled.div`
 `;
 const MenuItem = styled.div`
     border: 1px solid green;
-    width: 70%;
-    text-align: right;
+    width: 100%;
+    text-align: center;
+    display: flex;
     & a {
         margin: 10px;
         font-size: 20pt;
@@ -34,27 +42,54 @@ const MenuItem = styled.div`
         }
     }
 `;
+const ToggleSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`;
+const ToggleMenu = styled.div`
+    bottom: 0px;
+    width: 100%;
+`;
 
 const Navigation = () => {
+    const [openTab, setOpenTab] = useState("");
+    const openToggle = useCallback((e) => {
+        setOpenTab((prev) => !prev);
+    }, []);
     return (
         <>
-            <NavContainer>
-                <MenuLogo>logo</MenuLogo>
-                <MenuItem>
-                    <Link href="/chartindex">
-                        <a>Item1</a>
-                    </Link>
-                    <Link href="http://google.com">
-                        <a>Item2</a>
-                    </Link>
-                    <Link href="http://youtube.com">
-                        <a>Item3</a>
-                    </Link>
-                    <Link href="http://www.dev-won.com">
-                        <a>Item4</a>
-                    </Link>
-                </MenuItem>
-            </NavContainer>
+            <NavSection>
+                <NavContainer>
+                    <MenuItem>
+                        <ToggleSection>
+                            <Link href="/">
+                                <a onClick={openToggle}>Item1</a>
+                            </Link>
+                            {openTab && (
+                                <ToggleMenu>
+                                    <SubNav />
+                                </ToggleMenu>
+                            )}
+                        </ToggleSection>
+                        <ToggleSection>
+                            <Link href="http://google.com">
+                                <a>Item2</a>
+                            </Link>
+                        </ToggleSection>
+                        <ToggleSection>
+                            <Link href="http://youtube.com">
+                                <a>Item3</a>
+                            </Link>
+                        </ToggleSection>
+                        <ToggleSection>
+                            <Link href="http://www.dev-won.com">
+                                <a>Item4</a>
+                            </Link>
+                        </ToggleSection>
+                    </MenuItem>
+                </NavContainer>
+            </NavSection>
         </>
     );
 };

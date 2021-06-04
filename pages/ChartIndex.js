@@ -19,8 +19,8 @@ const ChartIndex = () => {
     return (
         <>
             <AppLayout>
-                {chartData.map((chartItem, index) => (
-                    <ChartForm key={index} chartItem={chartItem} />
+                {chartData.map((chartItem) => (
+                    <ChartForm key={chartItem.id} chartItem={chartItem} />
                 ))}
             </AppLayout>
         </>
