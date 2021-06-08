@@ -7,7 +7,8 @@ import {
 } from "../reducers/Chart";
 
 function loadChartDataAPI() {
-    return axios.get(`/api/analyzed/recent/`);
+    return axios.get(`/api/analyzed/decks`);
+    // axios.get(`/search-asyn?keyword=amd`);
 }
 
 function* loadChartData(action) {
@@ -28,7 +29,7 @@ function* loadChartData(action) {
 
 function* watchLoadChart() {
     /* request time setting */
-    yield throttle(60000, LOAD_CHARTDATA_REQUEST, loadChartData);
+    yield throttle(10000, LOAD_CHARTDATA_REQUEST, loadChartData);
 }
 
 export default function* chartSaga() {
