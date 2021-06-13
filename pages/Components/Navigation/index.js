@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
-
-import SubNav from "./SubNav";
+import { Menu } from 'antd';
+import { BarChartOutlined, AppstoreOutlined} from '@ant-design/icons';
 
 const NavSection = styled.div`
     position: relative;
@@ -11,7 +11,6 @@ const NavSection = styled.div`
 const NavContainer = styled.div`
     display: flex;
     width: 100%;
-    height: 80px;
     position: fixed;
     top: 0;
     align-items: center;
@@ -53,45 +52,49 @@ const ToggleMenu = styled.div`
 `;
 
 const Navigation = () => {
-    const [openTab, setOpenTab] = useState("");
-    const openToggle = useCallback((e) => {
-        setOpenTab((prev) => !prev);
-    }, []);
     return (
         <>
             <NavSection>
                 <NavContainer>
-                    <MenuItem>
-                        <ToggleSection>
+                    <Menu style={{width:"100%"}} theme="dark" mode="horizontal">
+                        <Menu.Item key="Home">
+                            <a>TAWeb</a>
+                        </Menu.Item>
+                        <Menu.Item key="Analyze" icon={<BarChartOutlined />}>
                             <Link href="/">
-                                <a onClick={openToggle}>Item1</a>
+                                <a>덱 분석</a>
                             </Link>
-                            {openTab && (
-                                <ToggleMenu>
-                                    <SubNav />
-                                </ToggleMenu>
-                            )}
-                        </ToggleSection>
-                        <ToggleSection>
+                        </Menu.Item>
+                        <Menu.Item key="Personalization" icon={<AppstoreOutlined />}>
+                            <Link href="/Personalization">
+                                <a>개인 분석</a>
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item key="VideoYT">
+                            <Link href="/VideoYT">
+                                <a>동영상</a>
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item key="Board" icon={<AppstoreOutlined />}>
+                            <Link href="/Board">
+                                <a>게시판</a>
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item key="Contact" icon={<AppstoreOutlined />}>
                             <Link href="/Contact">
-                                <a>Item2</a>
+                                <a>문의</a>
                             </Link>
-                        </ToggleSection>
-                        <ToggleSection>
+                        </Menu.Item>
+                        <Menu.Item key="Test" icon={<AppstoreOutlined />}>
                             <Link href="/Test">
-                                <a>Item3</a>
+                                <a>TEST</a>
                             </Link>
-                        </ToggleSection>
-                        <ToggleSection>
-                            <Link href="http://www.dev-won.com">
-                                <a>Item4</a>
-                            </Link>
-                        </ToggleSection>
-                    </MenuItem>
+                        </Menu.Item>
+                    </Menu>
                 </NavContainer>
             </NavSection>
         </>
     );
-};
+}
 
 export default Navigation;

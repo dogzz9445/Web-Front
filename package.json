@@ -8,9 +8,10 @@
         "start": "next start -p 9999"
     },
     "dependencies": {
+        "@ant-design/icons": "^4.6.2",
         "@emotion/react": "^11.4.0",
         "@emotion/styled": "^11.3.0",
-        "@material-ui/core": "^4.11.4",
+        "antd": "^4.16.2",
         "axios": "^0.21.1",
         "chart.js": "^3.3.0",
         "immer": "^9.0.2",

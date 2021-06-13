@@ -5,6 +5,15 @@ import { LOAD_CHARTDATA_REQUEST } from "../reducers/Chart";
 import AppLayout from "./Components/AppLayout";
 import ChartForm from "./Components/Chart/ChartForm";
 
+// TODO:
+// Use this when insert chart
+// function a11yProps(index) {
+//     return {
+//         id: `simple-tab-${index}`,
+//         'aria-controls': `simple-tabpanel-${index}`,
+//     };
+// }
+
 const ChartIndex = () => {
     const dispatch = useDispatch();
     const { chartData, chartDataLoading } = useSelector((state) => state.Chart);
