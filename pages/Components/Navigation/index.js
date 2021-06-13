@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { Menu } from 'antd';
-import { BarChartOutlined, AppstoreOutlined} from '@ant-design/icons';
+import { LineChartOutlined, UserSwitchOutlined, PlaySquareOutlined, FormOutlined, RightSquareOutlined, AppstoreOutlined} from '@ant-design/icons';
 
 const NavSection = styled.div`
     position: relative;
@@ -60,22 +60,22 @@ const Navigation = () => {
                         <Menu.Item key="Home">
                             <a>TAWeb</a>
                         </Menu.Item>
-                        <Menu.Item key="Analyze" icon={<BarChartOutlined />}>
+                        <Menu.Item key="Analyze" icon={<LineChartOutlined />}>
                             <Link href="/">
                                 <a>덱 분석</a>
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="Personalization" icon={<AppstoreOutlined />}>
+                        <Menu.Item key="Personalization" icon={<UserSwitchOutlined />}>
                             <Link href="/Personalization">
                                 <a>개인 분석</a>
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="VideoYT">
+                        <Menu.Item key="VideoYT" icon={<PlaySquareOutlined/>}>
                             <Link href="/VideoYT">
                                 <a>동영상</a>
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="Board" icon={<AppstoreOutlined />}>
+                        <Menu.Item key="Board" icon={<FormOutlined />}>
                             <Link href="/Board">
                                 <a>게시판</a>
                             </Link>
@@ -85,7 +85,7 @@ const Navigation = () => {
                                 <a>문의</a>
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="Test" icon={<AppstoreOutlined />}>
+                        <Menu.Item key="Test" icon={<RightSquareOutlined />}>
                             <Link href="/Test">
                                 <a>TEST</a>
                             </Link>
