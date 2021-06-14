@@ -1,12 +1,10 @@
 import AppLayout from "./Components/AppLayout";
-import Chart from "./Components/Chart/ChartForm";
+import Deck from "./Deck";
 
 export default function Home() {
     return (
         <>
-            <AppLayout>
-                <Chart />
-            </AppLayout>
+            <Deck/>
         </>
     );
 }

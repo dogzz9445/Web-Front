@@ -18,14 +18,11 @@ const reducer = (state = initialState, action) =>
                 draft.deckDataDone = false;
                 draft.deckDataLoading = true;
                 draft.deckDataError = null;
-                console.log("요청");
                 break;
             case LOAD_DECKDATA_SUCCESS:
                 draft.deckDataDone = true;
                 draft.deckDataLoading = false;
-                /* 추후 불러오는 부분 수정해야함. */
-                draft.deckData = draft.deckData.concat(action.data);
-                console.log(action.data);
+                draft.deckData = action.data;
                 break;
             case LOAD_DECKDATA_FAILURE:
                 draft.deckDataLoading = false;

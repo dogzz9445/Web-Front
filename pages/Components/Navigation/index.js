@@ -5,7 +5,7 @@ import { Menu } from 'antd';
 import { LineChartOutlined, UserSwitchOutlined, PlaySquareOutlined, FormOutlined, RightSquareOutlined, AppstoreOutlined} from '@ant-design/icons';
 
 const NavSection = styled.div`
-    position: relative;
+    position: fixed;
     width: 100%;
 `;
 const NavContainer = styled.div`
@@ -54,8 +54,6 @@ const ToggleMenu = styled.div`
 const Navigation = () => {
     return (
         <>
-            <NavSection>
-                <NavContainer>
                     <Menu style={{width:"100%"}} theme="dark" mode="horizontal">
                         <Menu.Item key="Home">
                             <a>TAWeb</a>
@@ -91,8 +89,6 @@ const Navigation = () => {
                             </Link>
                         </Menu.Item>
                     </Menu>
-                </NavContainer>
-            </NavSection>
         </>
     );
 }

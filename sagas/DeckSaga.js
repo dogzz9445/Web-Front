@@ -14,7 +14,7 @@ function loadDeckDataAPI() {
 function* loadDeckData(action) {
     try {
         const result = yield call(loadDeckDataAPI, action.data);
-
+        
         yield put({
             type: LOAD_DECKDATA_SUCCESS,
             data: result.data,
@@ -22,14 +22,14 @@ function* loadDeckData(action) {
     } catch (err) {
         yield put({
             type: LOAD_DECKDATA_FAILURE,
-            error: err.response.data,
+            error: err.response,
         });
     }
 }
 
 function* watchLoadDeck() {
     /* request time setting */
-    yield throttle(10000, LOAD_DECKDATA_REQUEST, loadDeckData);
+    yield throttle(3600000, LOAD_DECKDATA_REQUEST, loadDeckData);
 }
 
 export default function* deckSaga() {

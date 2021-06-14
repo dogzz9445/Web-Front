@@ -5,13 +5,13 @@ import { LOAD_DECKDATA_REQUEST } from "../reducers/Deck";
 
 import AppLayout from "./Components/AppLayout";
 import ChartForm from "./Components/Chart/ChartForm";
+import DeckCard from "./Components/Card/DeckCard";
 
 const Deck = () => {
     const dispatch = useDispatch();
     const { deckData, deckDataLoading } = useSelector((state) => state.Deck);
 
     useEffect(() => {
-        console.log("Hi");
         dispatch({
             type: LOAD_DECKDATA_REQUEST,
         });
@@ -20,12 +20,10 @@ const Deck = () => {
     return (
         <>
             <AppLayout>
-                <ChartForm key={item.data.toString()} item={item} />
-                <DeckCardForm>
-                    {deckData.map((item) => (
-                        <DeckCard key={item.data.toString()} item={item} />
-                    ))}
-                </DeckCardForm>
+                <ChartForm item={deckData} />
+                { deckData.data?.map((oneDeckData) => (
+                    <DeckCard key={oneDeckData.id} oneDeckData={oneDeckData} />
+                ))}
             </AppLayout>
         </>
     );
