@@ -5,6 +5,7 @@ export const initialState = {
     deckDataLoading: false,
     deckDataDone: false,
     deckDataError: null,
+    deckStartDate: null,
 };
 
 export const LOAD_DECKDATA_REQUEST = "LOAD_DECKDATA_REQUEST";

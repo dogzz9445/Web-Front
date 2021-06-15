@@ -5,17 +5,23 @@ import FooterSection from "./FooterSection/FooterSection";
 
 import styled from "@emotion/styled";
 
-const Content = styled.div`
-    height: 100%;
-    margin-top: 120px;
-`;
+import { Layout } from "antd";
+const { Header, Content, Footer } = Layout;
 
 const AppLayout = ({ children }) => {
     return (
         <>
-            <Navigation />
-            <Content>{children}</Content>
-            <FooterSection />
+            <Header className="header">
+                <Navigation />
+            </Header>
+            <Content style={{ padding: '0 50px '}}>
+                <Layout className="site-layout-background" style={{ padding: '12px 0' }}>
+                    {children}
+                </Layout>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}>
+                <FooterSection />
+            </Footer>
         </>
     );
 };

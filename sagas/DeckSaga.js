@@ -1,5 +1,5 @@
 import axios from "axios";
-import { all, call, fork, put, takeLatest, throttle } from "redux-saga/effects";
+import { all, call, fork, put, takeEvery, takeLatest, throttle } from "redux-saga/effects";
 import {
     LOAD_DECKDATA_FAILURE,
     LOAD_DECKDATA_REQUEST,
@@ -28,8 +28,7 @@ function* loadDeckData(action) {
 }
 
 function* watchLoadDeck() {
-    /* request time setting */
-    yield throttle(3600000, LOAD_DECKDATA_REQUEST, loadDeckData);
+    yield takeLatest(LOAD_DECKDATA_REQUEST, loadDeckData);
 }
 
 export default function* deckSaga() {

@@ -3,41 +3,34 @@ import { Line } from "react-chartjs-2";
 import PropTypes from "prop-types";
 
 import styled from "@emotion/styled";
+import randomColor from "randomcolor";
 
 const ChartContainer = styled.div`
     height: 500px;
-    margin: 100px;
+    margin: 16px;
 `;
 
-const Chart = ({ chart }) => {
-    const chartData = [15, 12, 14, 16];
-    const oneDay = [17, 13, 20, 33];
+const Chart = ({ deckData }) => {
+    var iterDate = new Date(deckData.info?.start_time);
+    const labelDates = [];
+    for (var i = 0; i < 7; i++){
+        labelDates.push(iterDate.toLocaleDateString());
+        iterDate.setDate(iterDate.getDate() + 1);
+    }
     const data = {
-        labels: ["네임1", "네임2", "네임3", "네임4"],
-        datasets: [
-            //원소 1
-            {
-                label: "일간",
-                data: chartData,
+        labels: labelDates,
+        datasets: deckData.data?.map((item, idx) => {
+            return {
+                label: item['id'] + 1,
+                data: item['daily_win_rate'],
                 // chartData && chartData.class_coverage,
-                lineTension: 0,
+                lineTension: 0.4,
+                fill: false,
                 // backgroundColor: "rgba(15, 107, 255, 0.1)",
-                borderWidth: 1,
-                borderColor: "#0f6bff",
-                // fill: true,
-            },
-            //원소2
-            {
-                label: "주간",
-                data: oneDay,
-                // chartData && chartData.method_coverage,
-                lineTension: 0,
-                // backgroundColor: "rgba(242, 184, 113, 0.1)",
-                borderWidth: 1,
-                borderColor: "#f2b471",
-                // fill: true,
-            },
-        ],
+                cubicInterpolationMode: 'monotone',
+                borderColor: randomColor(),
+            }
+        }),
     };
 
     const options = {
@@ -45,7 +38,7 @@ const Chart = ({ chart }) => {
         maintainAspectRatio: false,
     };
     const legend = {
-        display: true,
+        display: false,
         labels: {
             fontColor: "black",
         },
@@ -56,7 +49,6 @@ const Chart = ({ chart }) => {
         <>
             <ChartContainer>
                 <Line data={data} legend={legend} options={options} />
-                <div>{chart}asdasd</div>
             </ChartContainer>
         </>
     );

@@ -14,3 +14,24 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'NanumSquareB';
+  font-style: normal;
+  src: url('/fonts/NanumSquareB.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'NanumSquareR';
+  font-style: normal;
+  src: url('/fonts/NanumSquareR.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'NanumSquareL';
+  font-style: normal;
+  src: url('/fonts/NanumSquareL.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'NanumSquareEB';
+  font-style: normal;
+  src: url('/fonts/NanumSquareEB.ttf') format('truetype');
+}
