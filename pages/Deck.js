@@ -6,6 +6,7 @@ import { LOAD_DECKDATA_REQUEST } from "../reducers/Deck";
 import AppLayout from "./Components/AppLayout";
 import ChartForm from "./Components/Chart/ChartForm";
 import DeckCard from "./Components/Card/DeckCard";
+import DateForm from "./Components/DatePicker/DatePicker";
 
 const Deck = () => {
     const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const Deck = () => {
     return (
         <>
             <AppLayout>
+                <DateForm />
                 <ChartForm item={deckData} />
                 { deckData.data?.map((oneDeckData) => (
                     <DeckCard key={oneDeckData.id} oneDeckData={oneDeckData} />
