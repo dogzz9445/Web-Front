@@ -18,7 +18,7 @@ const DeckCard = ({oneDeckData}) => {
                                 width={50} 
                                 alt={oneChampion.toString()} 
                                 src={"http://localhost:3000/assets/champions/" + oneChampion.toString() + ".png"} />
-                            <Typography style={{ fontSize: "13px", fontFamily: "NanumSquareR" }}>{oneChampion.toString()}</Typography>
+                            <Typography style={{ fontSize: "13px", fontFamily: "NotoSansKR-Bold" }}>{oneChampion.toString()}</Typography>
                         </Space>
                     ))}
                 </Space>
@@ -31,7 +31,7 @@ const DeckCard = ({oneDeckData}) => {
                                 width={50} 
                                 alt={oneTrait.toString()} 
                                 src={"http://localhost:3000/assets/traits/" + oneTrait.toString() + ".png"} />
-                            <Typography style={{ fontSize: "13px", fontFamily: "NanumSquareB" }}>{oneTrait.toString()}</Typography>
+                            <Typography style={{ fontSize: "13px", fontFamily: "NotoSansKR-Bold" }}>{oneTrait.toString()}</Typography>
                         </Space>
                     ))}
                 </Space>

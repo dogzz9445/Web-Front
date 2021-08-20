@@ -61,7 +61,7 @@ const ToggleMenu = styled.div`
 const Navigation = () => {
     return (
         <>
-            <Menu style={{width:"100%", fontFamily:"NanumSquareR"}} theme="dark" mode="horizontal">
+            <Menu style={{width:"100%", fontFamily:"NotoSansKR-Bold"}} theme="dark" mode="horizontal">
                 <Menu.Item key="Home">
                     <a>TAWeb</a>
                 </Menu.Item>

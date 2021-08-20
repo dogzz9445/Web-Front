@@ -4,7 +4,7 @@ import axios from "axios";
 import DeckSaga from "./DeckSaga";
 
 // caxios.defaults.baseURL = "https://memoryboost.kr/";
-axios.defaults.baseURL = "";
+axios.defaults.baseURL = "http://tzfamilyreact.duckdns.org/";
 axios.defaults.withCredentials = true;
 
 export default function* rootSaga() {
