@@ -41,7 +41,7 @@ const Deck = () => {
                         <Row justify="space-around">
                             <Col span={4} />
                             <Col span={14} style={{textAlign: "center", verticalAlign: "center"}}>
-                                <Title style={{fontFamily:"NanumSquareB"}} level={2}>
+                                <Title style={{fontFamily:"NotoSansKR-Bold"}} level={2}>
                                     나눔스퀘어 테스트
                                 </Title>
                             </Col>

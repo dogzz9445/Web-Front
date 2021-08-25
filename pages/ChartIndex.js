@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { LOAD_CHARTDATA_REQUEST } from "../reducers/Chart";
+//import { LOAD_CHARTDATA_REQUEST } from "../reducers/Chart";
 
 import AppLayout from "./Components/AppLayout";
 import ChartForm from "./Components/Chart/ChartForm";

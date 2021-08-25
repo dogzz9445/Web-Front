@@ -1,7 +1,7 @@
 import React from "react";
+import Link from "next/link";
 
 import Navigation from "./Navigation/index";
-import FooterSection from "./FooterSection/FooterSection";
 
 import styled from "@emotion/styled";
 
@@ -15,12 +15,16 @@ const AppLayout = ({ children }) => {
                 <Navigation />
             </Header>
             <Content style={{ padding: '0 50px '}}>
-                <Layout className="site-layout-background" style={{ padding: '12px 0' }}>
+                <Layout style={{ padding: '12px 0' }}>
                     {children}
                 </Layout>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>
-                <FooterSection />
+            <Footer style={{ fontSize:6, textAlign: 'center', padding: '0 50px' }}>
+                ⓒ 
+                <Link href="https://github.com/dogzz9445">
+                    <a> Dongmin Jang</a>
+                </Link> rights reserved, 별도의 언급이 없다면 이 사이트에 공개된 사진들은 크리에이티브 커먼즈 [저작자표시-비영리 2.0 대한민국 라이선스]에 따라 이용할 수 있습니다.
+                <br/>
             </Footer>
         </>
     );

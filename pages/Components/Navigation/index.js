@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { Menu } from 'antd';
@@ -7,66 +7,31 @@ import {
     UserSwitchOutlined, 
     PlaySquareOutlined, 
     FormOutlined, 
-    RightSquareOutlined, 
-    AppstoreOutlined
+    AppstoreOutlined,
+    HomeOutlined,
+    HomeFilled
 } from '@ant-design/icons';
 
-const NavSection = styled.div`
-    position: fixed;
-    width: 100%;
-`;
-const NavContainer = styled.div`
-    display: flex;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    align-items: center;
-`;
-const MenuLogo = styled.div`
-    border: 1px solid blue;
-    width: 30%;
-    font-size: 20pt;
-    @media (maxw-width: 360px) {
-        font-size: 14pt;
-        width: 20%;
-    }
-`;
-const MenuItem = styled.div`
-    border: 1px solid green;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    & a {
-        margin: 10px;
-        font-size: 20pt;
-    }
-    @media (max-width: 360px) {
-        width: 80%;
-        & a {
-            margin: 4px;
-            font-size: 14pt;
-        }
-    }
-`;
-const ToggleSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-`;
-const ToggleMenu = styled.div`
-    bottom: 0px;
-    width: 100%;
-`;
-
 const Navigation = () => {
+    const [selectedMenu, setSelectedMenu] = useState({currentKey: "Deck"});
+
+    const handleClick = e => {
+        this.setState({currentKey : e.key});
+    }
+
     return (
         <>
-            <Menu style={{width:"100%", fontFamily:"NotoSansKR-Bold"}} theme="dark" mode="horizontal">
-                <Menu.Item key="Home">
+            <Menu style={{width:"100%", fontSize:15, fontFamily:"NotoSansKR-Regular"}} theme="white" mode="horizontal">
+                <Menu.Item key="Home" icon={<HomeFilled />}>
                     <a>TAWeb</a>
                 </Menu.Item>
+                <Menu.Item key="Unity" icon={<LineChartOutlined />}>
+                    <Link href="/Unity">
+                        <a>유니티</a>
+                    </Link>
+                </Menu.Item>
                 <Menu.Item key="Analyze" icon={<LineChartOutlined />}>
-                    <Link href="/">
+                    <Link href="/Deck">
                         <a>덱 분석</a>
                     </Link>
                 </Menu.Item>
@@ -88,11 +53,6 @@ const Navigation = () => {
                 <Menu.Item key="Contact" icon={<AppstoreOutlined />}>
                     <Link href="/Contact">
                         <a>문의</a>
-                    </Link>
-                </Menu.Item>
-                <Menu.Item key="Test" icon={<RightSquareOutlined />}>
-                    <Link href="/Test">
-                        <a>TEST</a>
                     </Link>
                 </Menu.Item>
             </Menu>
