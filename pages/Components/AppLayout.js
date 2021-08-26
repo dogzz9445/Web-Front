@@ -14,12 +14,12 @@ const AppLayout = ({ children }) => {
             <Header className="header">
                 <Navigation />
             </Header>
-            <Content style={{ padding: '0 50px '}}>
+            <Content >
                 <Layout style={{ padding: '12px 0' }}>
                     {children}
                 </Layout>
             </Content>
-            <Footer style={{ fontSize:6, textAlign: 'center', padding: '0 50px' }}>
+            <Footer style={{ fontSize:6, textAlign: 'center', padding: '0' }}>
                 ⓒ 
                 <Link href="https://github.com/dogzz9445">
                     <a> Dongmin Jang</a>
